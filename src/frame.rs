@@ -123,6 +123,13 @@ fn skip(src: &mut Cursor<&[u8]>, n: usize) -> Result<(), Error> {
     Ok(())
 }
 
+// read a new line terminated decimal
+fn get_decimal(src: &mut Cursor<&[u8]>) -> Result<u64, Error> {
+    use atoi::atoi;
+    let line = get_line(src)?;
+    atoi::<u64>(line).ok_or_else(|| "protocol error; invalid frame format".into())
+}
+
 // get_line returns the line from cursor position
 fn get_line<'a>(src: &mut Cursor<&'a [u8]>) -> Result<&'a [u8], Error> {
     let start = src.position() as usize;

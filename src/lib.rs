@@ -5,7 +5,16 @@ pub mod cmd;
 pub mod frame;
 pub use frame::Frame;
 
-pub mod parse;
+
+mod db;
+
+mod parse;
+use parse::Parse;
+
+/// Default port that a redis server listens on.
+///
+/// Used if no port is specified.
+pub const DEFAULT_PORT: u16 = 6379;
 
 /// Error returned by most functions.
 ///
@@ -19,3 +28,8 @@ pub mod parse;
 /// socket. `std::error::Error` is implemented for `parse::Error` which allows
 /// it to be converted to `Box<dyn std::error::Error>`.
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
+
+/// A specialized `Result` type for mini-redis operations.
+///
+/// This is defined as a convenience.
+pub type Result<T> = std::result::Result<T, Error>;

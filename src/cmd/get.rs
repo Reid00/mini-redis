@@ -1,3 +1,5 @@
+use crate::Parse;
+
 /// Get the value of key
 ///
 /// if key does not exist the special value nil is returned. An error is
@@ -42,7 +44,5 @@ impl Get {
     /// ```text
     /// GET key
     /// ```
-    pub(crate) fn parse_frames(parse: &mut Parse) -> crate::Result<Get> {
-        
-    }
+    pub(crate) fn parse_frames(parse: &mut Parse) -> crate::Result<Get> {}
 }
