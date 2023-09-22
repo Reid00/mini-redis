@@ -5,6 +5,7 @@ pub mod cmd;
 pub mod frame;
 pub use frame::Frame;
 
+mod connnection;
 
 mod db;
 
