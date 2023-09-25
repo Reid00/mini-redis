@@ -6,6 +6,7 @@ pub mod frame;
 pub use frame::Frame;
 
 mod connnection;
+pub use connnection::Connection;
 
 mod db;
 
