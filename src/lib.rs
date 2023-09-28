@@ -11,8 +11,12 @@ pub use connnection::Connection;
 mod db;
 
 mod parse;
-use parse::Parse;
+use parse::{Parse, ParseError};
 
+mod shutdown;
+use shutdown::Shutdown;
+
+mod server;
 /// Default port that a redis server listens on.
 ///
 /// Used if no port is specified.
