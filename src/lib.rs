@@ -1,6 +1,7 @@
 pub mod clients;
 
 pub mod cmd;
+pub use cmd::Command;
 
 pub mod frame;
 pub use frame::Frame;
@@ -9,6 +10,8 @@ mod connnection;
 pub use connnection::Connection;
 
 mod db;
+use db::Db;
+use db::DbDropGuard;
 
 mod parse;
 use parse::{Parse, ParseError};
