@@ -107,6 +107,12 @@ impl DbDropGuard {
     }
 }
 
+impl Drop for DbDropGuard {
+    fn drop(&mut self) {
+        self.db.shutdown_purge_task();
+    }
+}
+
 impl Db {
     /// Create a new, empty, `Db` instance. Allocates shared state and spawns a
     /// background task to manage key expiration.
